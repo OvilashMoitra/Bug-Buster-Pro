@@ -4,6 +4,7 @@ import Header from '../components/ui/Header'
 import PriceSection from '@/components/ui/PriceSection'
 import Stats from '@/components/ui/Stats'
 import BlogCard from '@/components/ui/Blog/BlogCard'
+import BlogDetails from '@/components/ui/Blog/BlogDetails'
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
         <BlogCard />
         <BlogCard />
       </div>
-
+      <BlogDetails />
       <Footer />
     </div>
   )
