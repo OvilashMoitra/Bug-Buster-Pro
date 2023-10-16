@@ -7,5 +7,5 @@ const baseUrl = "http://localhost:8000/api/v1/"
 export const bugBusterProApi = createApi({
     reducerPath: 'bugBusterProApi',
     baseQuery: axiosBaseQuery({ baseUrl }),
-    endpoints: (builder) => ({}),
+    endpoints: (build) => ({}),
 })

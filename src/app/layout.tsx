@@ -1,11 +1,11 @@
 import React from 'react';
 import { Inter } from 'next/font/google';
 
-import StyledComponentsRegistry from '../lib/AntdRegistry';
-
 import './globals.css';
 import { Metadata } from 'next';
 import Navbar from '../components/ui/Navbar';
+import Providers from '../lib/Providers';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
 }
 
 const RootLayout = ({ children }: React.PropsWithChildren) => (
-  <html lang="en">
-    <body className={inter.className}>
-      <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-    </body>
-  </html>
+  <Providers>
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  </Providers>
 );
 
 export default RootLayout;

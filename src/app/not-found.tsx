@@ -32,7 +32,11 @@ const notFound = () => {
                     width={500}
                     height={500}
                 />
-                <Button type="primary" size={"middle"}>
+                <Button
+                    style={{
+                        backgroundColor: "#1890ff",
+                    }}
+                    type="primary" size={"middle"}>
                     <Link href="/">Go to Home</Link>
                 </Button>
             </div>
