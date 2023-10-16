@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
-
+import {PiPencilSimpleLineBold} from "react-icons/pi";
 import DynamicTable from '@/components/ui/Table/DynamicTable';
+import { useGetAllUserQuery } from '@/redux/api/authApi';
 import { useGetAllFAQQuery } from '@/redux/api/faqApi';
 import { Button } from 'antd';
 import Link from 'next/link';
@@ -9,9 +10,9 @@ import React from 'react';
 
 // fetch the data and mutate it make column
 const columns = [
-  { title: 'Question', dataIndex: 'Question', key: '1' },
-  { title: 'Answer', dataIndex: 'Answer', key: '2' },
-    { title: 'Created By', dataIndex: 'created By', key: '3' },
+  { title: 'Email', dataIndex: 'Email', key: '1' },
+  { title: 'Id', dataIndex: 'key', key: '2' },
+    { title: 'Role', dataIndex: 'Role', key: '3' },
   {
     title: 'Action',
     key: '4',
@@ -21,25 +22,31 @@ const columns = [
 
 
 const page = () => {
-  const { data, isLoading } = useGetAllFAQQuery(undefined);
-  // console.log(data?.data);
-  const columnData = data?.data?.map((elem: { id: string; question: string; answer: string }) => {
+
+  const { data, isLoading } = useGetAllUserQuery(undefined);
+
+  const columnData = data?.data?.map((elem: { id: any; email: any; Role: { name: any; }; }) => {
     return {
       key: elem?.id,
-      Question: elem?.question,
-      Answer: elem?.answer,
-      Operation: <Link href={`/content_manager/faq/${elem?.id}`}>Update</Link>,
+      Email: elem?.email,
+      Role: elem?.Role?.name,
+      Operation: <Link className="text-lg text-black" href={`/super_admin/manage_user/${elem?.id}`}>
+        <Button type="primary" className="mr-2">
+          <PiPencilSimpleLineBold />
+        </Button>
+      </Link>,
     };
   }) ?? [];
-  console.log({ columnData });
+
     return (
         <div>
+            <p>this page is to manage user role</p>
             <div className='flex justify-end p-10'>
               <Button
                     type="primary"
                     className='my-5'
                >
-                <Link href={'/content_manager/faq/create'}>Create</Link>
+                <Link href={'/content_manager/manage_user/create'}>Create</Link>
               </Button>
             </div>
         <DynamicTable

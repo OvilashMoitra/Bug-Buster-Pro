@@ -18,9 +18,30 @@ export const authApi = bugBusterProApi.injectEndpoints({
                 method: "POST",
                 data: loginData
             })
-        })
+        }),
+        getUser: build.query({
+            query: (id) => ({
+                url: `${AUTH_URL}/${id}`,
+                method: "GET",
+            })
+        }),
+        getAllUser: build.query({
+            query: () => ({
+                url: `${AUTH_URL}/`,
+                method: "GET",
+            })
+        }),
+        updateUser: build.mutation({
+            query: (updatedInfo) => ({
+                url: `${AUTH_URL}/${updatedInfo.data}`,
+                method: "PATCH",
+                data: updatedInfo.data
+            })
+        }),
     }),
 
 })
 
-export const { useUserLoginMutation, useUserSignUpMutation } = authApi
+export const {
+    useUserLoginMutation, useUserSignUpMutation, useGetAllUserQuery, useUpdateUserMutation, useGetUserQuery
+} = authApi

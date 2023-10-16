@@ -10,7 +10,7 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Button, Input, message } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useForm, SubmitHandler, useFormContext } from "react-hook-form"
+import { SubmitHandler } from "react-hook-form"
 
 type Inputs = {
     email: string

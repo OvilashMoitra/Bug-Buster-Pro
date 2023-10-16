@@ -13,7 +13,8 @@ const getUserInfo = () => {
     if (accessToken) {
         token= JSON.parse(accessToken)
     }
-    const userInfo =  jwtHelper.decodeToken(token);
+ 
+    const userInfo =  jwtHelper.decodeToken(token.BBP_Access_token);
     return userInfo ;
 }
 
