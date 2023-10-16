@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 import {PiPencilSimpleLineBold} from "react-icons/pi";
+import {BsPlus} from "react-icons/bs";
 import DynamicTable from '@/components/ui/Table/DynamicTable';
 import { useGetAllUserQuery } from '@/redux/api/authApi';
 import { useGetAllFAQQuery } from '@/redux/api/faqApi';
@@ -40,13 +41,12 @@ const page = () => {
 
     return (
         <div>
-            <p>this page is to manage user role</p>
             <div className='flex justify-end p-10'>
               <Button
                     type="primary"
                     className='my-5'
                >
-                <Link href={'/content_manager/manage_user/create'}>Create</Link>
+                <Link href={'/content_manager/manage_user/create'}>Create <BsPlus className="inline text-base"/></Link>
               </Button>
             </div>
         <DynamicTable

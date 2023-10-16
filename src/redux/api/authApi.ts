@@ -33,9 +33,9 @@ export const authApi = bugBusterProApi.injectEndpoints({
         }),
         updateUser: build.mutation({
             query: (updatedInfo) => ({
-                url: `${AUTH_URL}/${updatedInfo.data}`,
+                url: `${AUTH_URL}/${updatedInfo.id}`,
                 method: "PATCH",
-                data: updatedInfo.data
+                data: { 'role': updatedInfo.role }
             })
         }),
     }),

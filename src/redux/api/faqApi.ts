@@ -24,7 +24,8 @@ export const faqApi = bugBusterProApi.injectEndpoints({
             query: () => ({
                 url: `${FAQ_URL}/`,
                 method: "GET",
-            })
+            }),
+            providesTags: ["faq"]
         }),
         updateFAQ: build.mutation({
             query: (payload) => ({
