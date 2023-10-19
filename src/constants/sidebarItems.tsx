@@ -40,6 +40,10 @@ export const sidebarItems = (role: string) => {
       label: <Link href={`/${role}/faq`}>Manage Faq</Link>,
       icon: <TableOutlined />,
       key: `/${role}/manage-faq`,
+    }, {
+      label: <Link href={`/content_manager/contact`}>Manage Contact</Link>,
+      icon: <TableOutlined />,
+      key: `/content_manager/contact`,
     },
   ];
 
@@ -93,6 +97,11 @@ export const sidebarItems = (role: string) => {
       label: <Link href={`/product_manager/manage_product`}>Manage Service</Link>,
       icon: <TableOutlined />,
       key: `/product_manager/manage_product`,
+    },
+    {
+      label: <Link href={`/content_manager/contact`}>Manage Contact</Link>,
+      icon: <TableOutlined />,
+      key: `/content_manager/contact`,
     },
     {
       label: <Link href={`/content_manager/blog`}>Manage Blogs</Link>,

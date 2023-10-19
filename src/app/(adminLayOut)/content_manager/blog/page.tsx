@@ -56,7 +56,8 @@ const page = () => {
     return (
         <div>
             <div className='flex justify-end p-10'>
-              <Button
+          <Button
+            style={{background:"blue",color:"white"}}
                     type="primary"
                     className='my-5'
                >

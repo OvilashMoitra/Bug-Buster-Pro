@@ -42,11 +42,12 @@ const page = () => {
     return (
         <div>
             <div className='flex justify-end p-10'>
-              <Button
+          <Button
+            style={{ background:"blue",color:"white" }}
                     type="primary"
                     className='my-5'
                >
-                <Link href={'/content_manager/manage_user/create'}>Create <BsPlus className="inline text-base"/></Link>
+                <Link href={'/super_admin/manage_user/create'}>Create <BsPlus className="inline text-base"/></Link>
               </Button>
             </div>
         <DynamicTable

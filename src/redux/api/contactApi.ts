@@ -37,7 +37,7 @@ export const contactApi = bugBusterProApi.injectEndpoints({
             query: (payload) => ({
                 url: `${Contact_URL}/${payload.id}`,
                 method: "PATCH",
-                data: payload.data,
+                data: payload.contact,
             }),
             invalidatesTags: ['contact']
         }),
