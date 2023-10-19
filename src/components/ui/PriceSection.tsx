@@ -1,4 +1,5 @@
 "use client"
+import { localStorageHelper } from "@/helper/credential";
 import { useCreateCartMutation } from "@/redux/api/cartApi";
 import { useGetAllServiceQuery } from "@/redux/api/service";
 import { useRouter } from "next/navigation";
@@ -6,14 +7,24 @@ import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLik
 
 const PriceSection = () => {
     // !hooks
-    const route=useRouter()
+    const route = useRouter()
+    const userInfo = localStorageHelper.getUserInfo();
     const { data, isLoading } = useGetAllServiceQuery(undefined)
     const [addToCart]=useCreateCartMutation()
 
     // !functions
     const handleAddToCart = async (id: string) => { 
-        await addToCart(id)
-        route.push('/cart')
+        // @ts-ignore
+        const cartInfo = {
+            serviceId: id,
+            userId: userInfo?.data?._id
+        }
+        try {
+            const addCartResponse = await addToCart(cartInfo)
+            route.push('/cart')
+        } catch (error) {
+            
+        }
     }
     let services;
     if (data) {

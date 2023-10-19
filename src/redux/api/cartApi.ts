@@ -26,6 +26,13 @@ export const cartApi = bugBusterProApi.injectEndpoints({
             }),
             providesTags: ["cart"]
         }),
+        getUserCarts: build.query({
+            query: (id) => ({
+                url: `${Cart_URL}/${id}`,
+                method: "GET",
+            }),
+            providesTags: ["cart"]
+        }),
         updateCart: build.mutation({
             query: (payload) => ({
                 url: `${Cart_URL}/${payload.id}`,
@@ -41,5 +48,6 @@ export const {
     useCreateCartMutation,
     useDeleteCartMutation,
     useGetAllCartsQuery,
-    useUpdateCartMutation
+    useUpdateCartMutation,
+    useGetUserCartsQuery
 } = cartApi;
