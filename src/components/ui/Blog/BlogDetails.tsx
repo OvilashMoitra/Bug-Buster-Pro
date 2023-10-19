@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { IBlog } from '@/app/blog/page';
 import { useGetBlogByIdQuery } from '@/redux/api/blogApi';
+import parse from 'html-react-parser';
 import Link from 'next/link';
 import React from 'react';
 import moment from 'moment';
@@ -39,7 +40,9 @@ const BlogDetails = ({ id }: { id: string }) => {
 
                                 <img className='w-full rounded-2xl' src={blog?.blogImage} alt={blog?.blogTitle} />
 
-                                <p className="text-lg text-gray-800 dark:text-gray-200">{blog?.blogContent}</p>
+                                <div className="text-lg text-gray-800 dark:text-gray-200">
+                                    {parse(`${blog?.blogContent}`)}
+                                </div>
 
                                 <div className="grid lg:flex lg:justify-between lg:items-center gap-y-5 lg:gap-y-0">
                                     {blog?.tags?.map(tag => <p key={`${tag}`} className="m-0.5 inline-flex items-center gap-1.5 py-2 px-3 rounded-full text-sm text-black bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 " >
