@@ -2,42 +2,22 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { FcCallback } from 'react-icons/fc'
-import { BsFillChatLeftFill } from 'react-icons/bs'
 import { FcCalendar } from 'react-icons/fc'
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
-// import { toast } from 'react-hot-toast'
-// import { axiosInstance } from '../../../utils/axios/axiosInstance'
 import styles from './ContactCalltoAction.module.css'
-import { Button, Card, Drawer } from 'antd'
-// import './ContactCalltoAction.module.css'
-// import { v4 } from 'uuid'
-// import { Card } from '@nextui-org/react'
+import { Button, Card, Drawer, message } from 'antd'
+import { useCreateContactMutation } from '@/redux/api/contactApi'
 const ContactCalltoAction = () => {
-  // react-hook-form
+
+  // !hook
+  const [addToContact]=useCreateContactMutation()
+  //! react-hook-form
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
-  // state management
+  //! state management
   const [open, setOpen] = useState(false);
   const [isStartOpenClicked, setIsStartOpenClicked] = useState(false)
-  const [services, setServices] = useState([])
-  const [isOpen, setIsOpen] = useState(false)
-  const toggleDrawer = () => {
-    setIsOpen((prevState) => !prevState)
-  }
-  //! functions--
-  // functions--axios get to fetch all service
-  // useEffect(() => {
-  //   const getServices = async () => {
-  //     try {
-  //       const response = await axiosInstance('/services/getServices')
-  //       const serviceCollection = await response?.data?.map(elem => elem?.service)
-  //       setServices(serviceCollection)
-  //     } catch (err) {
-  //       toast.error(err)
-  //     }
-  //   }
-  //   getServices()
-  // }, [])
+
   // ! drawer functionality
   const showDrawer = () => {
     setOpen(true);
@@ -47,21 +27,15 @@ const ContactCalltoAction = () => {
     setOpen(false);
   };
   //!! post contact info to database
-  // const postContact = async (newContact) => {
-  //   return axiosInstance.post('contact/postContact', newContact)
-  //     .then(response => {
-  //       toast.success('Got your response.')
-  //       reset()
-  //     })
-  //     .catch(err => toast.error(err))
-  // }
-  // // functions--handle contact submission
-  const onSubmit = (data:unknown) => {
+
+  const onSubmit =async (data:unknown) => {
     console.log(data);
-    // postContact({ _id: v4(), ...data })
+    const contactResponse = await addToContact(data)
+    // @ts-ignore
+    message.success('Got your response.')
   };
 
-  // console.log(isStartOpenClicked);
+
 
 
   // drawer content
@@ -200,11 +174,16 @@ const ContactCalltoAction = () => {
             <span className="label-text">Phone Number</span>
           </label>
           <input type={'tel'} placeholder="Your phone number"
-            {...register("phoneNumber")}
+            {...register("phoneNumber",{required: "Phone number is required"})}
             className="py-2 rounded-2xl text-black border border-black bg-white shadow-2xl w-full max-w-xs" />
+          {errors.phoneNumber?.type === 'required' && <p role="alert" className='text-red-500'>Phone Number is required</p>}
         </div>
         {/* submission button */}
-        <input className='btn btn-primary rounded-full p-5 text-black font-extrabold block btn-full w-full my-3' type="submit" value="Submit" />
+        <div className='flex py-2 justify-center'>
+        <Button style={{background:"blue",color:'white'}} htmlType="submit">
+          Submit
+        </Button>
+       </div>
       </form>
     </div>
   }

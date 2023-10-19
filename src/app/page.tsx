@@ -1,3 +1,4 @@
+"use client"
 import Navbar from '../components/ui/Navbar'
 import Footer from '../components/ui/Footer'
 import Header from '../components/ui/Header'
@@ -9,8 +10,12 @@ import ContactCalltoAction from '@/shared/ContactCalltoAction/ContactCalltoActio
 import "./page.module.css"
 import { Button } from 'antd'
 import HomePageBanner from '@/components/ui/HomePageBanner'
+import { useEffect } from 'react'
+import { useGetAllStatsQuery, useUpdatePageViewQuery } from '@/redux/api/statsApi'
 
 export default function Home() {
+  // !hook
+  const {data}=useUpdatePageViewQuery(undefined)
   return (
     <div className='bg-slate-900'>
       <div className="bg-gradient-to-b from-violet-600/[.15] via-transparent" >

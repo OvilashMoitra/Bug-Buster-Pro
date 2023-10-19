@@ -78,12 +78,16 @@ const Stats = () => {
                             <div className="grow">
                                 <div className="flex items-center gap-x-2">
                                     <p className="text-xs uppercase tracking-wide text-gray-500">
-                                        Sessions
+                                        Blogs
                                     </p>
                                 </div>
                                 <div className="mt-1 flex items-center gap-x-2">
                                     <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200">
-                                        29.4%
+                                    {
+                                        isLoading ? <Spin /> : <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200">
+                                            {data?.data[0].blogs}
+                                    </h3>
+                                    }
                                     </h3>
                                 </div>
                             </div>
@@ -109,7 +113,7 @@ const Stats = () => {
                                 <div className="mt-1 flex items-center gap-x-2">
                                     {
                                         isLoading ? <Spin /> : <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200">
-                                            {data?.data[0].websiteVisits}
+                                            {data?.data[0].orders}
                                     </h3>
                                     }
                                 </div>

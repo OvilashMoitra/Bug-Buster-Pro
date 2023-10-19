@@ -11,10 +11,18 @@ export const statsApi = bugBusterProApi.injectEndpoints({
             }),
             providesTags: ["stats"]
         }),
+        updatePageView: build.query({
+            query: (payload) => ({
+                url: `${Stats_URL}/updatePageView`,
+                method: "GET",
+            }),
+            providesTags: ["stats"]
+        })
     }),
 
 })
 
 export const {
-    useGetAllStatsQuery
+    useGetAllStatsQuery,
+    useUpdatePageViewQuery,
 } = statsApi
