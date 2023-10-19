@@ -6,7 +6,7 @@ const HomePageBanner = () => {
             {/* <!-- Hero --> */}
             <div className="bg-slate-900">
                 <div className="bg-gradient-to-b from-violet-600/[.15] via-transparent">
-                    <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
+                    <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-36 space-y-8">
                         {/* <!-- Announcement Banner --> */}
                         {/* <div className="flex justify-center">
                     
