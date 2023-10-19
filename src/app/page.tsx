@@ -18,14 +18,6 @@ export default function Home() {
       <HomePageBanner/>
       <Stats />
       <PriceSection />
-      <div className='grid grid-cols-4 gap-5 px-5'>
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-      </div>
-      <BlogDetails />
       <Footer />
       {/* <Button type="primary" onClick={showDrawer}>
         Open

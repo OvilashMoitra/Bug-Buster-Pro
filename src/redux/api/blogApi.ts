@@ -26,6 +26,13 @@ export const blogApi = bugBusterProApi.injectEndpoints({
             }),
             providesTags: ["blog"]
         }),
+        getBlogById: build.query({
+            query: (id) => ({
+                url: `${Blog_URL}/${id}`,
+                method: "GET",
+            }),
+            providesTags: ["blog"]
+        }),
         updateBlog: build.mutation({
             query: (payload) => ({
                 url: `${Blog_URL}/${payload.id}`,
@@ -43,5 +50,6 @@ export const {
     useCreateBlogMutation,
     useDeleteBlogMutation,
     useGetAllBlogQuery,
-    useUpdateBlogMutation
+    useUpdateBlogMutation,
+    useGetBlogByIdQuery
 } = blogApi

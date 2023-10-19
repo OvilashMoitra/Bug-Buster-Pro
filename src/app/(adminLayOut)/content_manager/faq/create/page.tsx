@@ -22,6 +22,7 @@ const faqCreatePage = () => {
             const userInfo = localStorageHelper.getUserInfo()
             // console.log({ userInfo });
             // console.log({ ...data, addedBy: userInfo?.data?._id });
+            // @ts-ignore
             const response = await createFaq({ ...data, addedBy: userInfo?.data?._id })
             console.log(response);
             message.success('Faq Added')
