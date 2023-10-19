@@ -15,9 +15,14 @@ const getUserInfo = () => {
     const accessToken = ls.get('BBP_TOKEN') as {
         BBP_Access_token:string
     };
-
-    const userInfo =  jwtHelper.decodeToken(accessToken.BBP_Access_token);
-    return userInfo ;
+// console.log({accessToken});
+    if (accessToken?.BBP_Access_token) {
+        const userInfo =  jwtHelper.decodeToken(accessToken?.BBP_Access_token);
+        return userInfo ;
+    } else {
+        return {};
+    }
+    
 }
 
 const removeFromLocalStorage = (key:string) => {

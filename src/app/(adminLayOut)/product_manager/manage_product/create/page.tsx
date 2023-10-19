@@ -38,12 +38,13 @@ const serviceCreatePage = () => {
     const onSubmit: SubmitHandler<IService> = async (data) => {
         try {
             const userInfo = localStorageHelper.getUserInfo()
-            console.log({ ...data, isActive: false, addedBy: userInfo?.data?._id, features: tags });
+            // console.log({ ...data, isActive: false, addedBy: userInfo?.data?._id, features: tags });
             // console.log({ userInfo });
             // console.log({ ...data, addedBy: userInfo?.data?._id });
             // @ts-ignore
             const response = await createService({ ...data, isActive: false, addedBy: userInfo?.data?._id, features: tags })
-            console.log({ response });
+            // console.log({ response });
+            // @ts-ignore
             if (response.status === 202) {
                 message.success('Service Added')
             }

@@ -43,7 +43,7 @@ const page = () => {
               </Button>
             </div>
         <DynamicTable
-          loading={isLoading}
+          isLoading={isLoading}
           columns={columns}
           dataSource={columnData}
             />

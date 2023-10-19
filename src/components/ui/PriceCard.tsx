@@ -23,7 +23,7 @@ export const pricingData = [
 ]
 
 
-const PriceCard = ({ title, price, description, features }) => {
+const PriceCard = ({ title, price, description, features }:{title:string,price:string,description:string,features:string[]}) => {
     return (
         <Card className="m-4" title={title} style={{ width: 300 }}>
             <p className="text-2xl font-bold mb-4">{price}</p>

@@ -22,8 +22,7 @@ export default function Home() {
       {/* <Button type="primary" onClick={showDrawer}>
         Open
       </Button> */}
-      <ContactCalltoAction>
-        </ContactCalltoAction>
+      <ContactCalltoAction/>
     </div>
     </div>
   )

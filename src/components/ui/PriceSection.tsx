@@ -17,6 +17,7 @@ const PriceSection = () => {
         // @ts-ignore
         const cartInfo = {
             serviceId: id,
+             // @ts-ignore
             userId: userInfo?.data?._id
         }
         try {

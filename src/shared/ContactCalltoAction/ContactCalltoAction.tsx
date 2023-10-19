@@ -47,17 +47,18 @@ const ContactCalltoAction = () => {
     setOpen(false);
   };
   //!! post contact info to database
-  const postContact = async (newContact) => {
-    return axiosInstance.post('contact/postContact', newContact)
-      .then(response => {
-        toast.success('Got your response.')
-        reset()
-      })
-      .catch(err => toast.error(err))
-  }
-  // functions--handle contact submission
-  const onSubmit = (data) => {
-    postContact({ _id: v4(), ...data })
+  // const postContact = async (newContact) => {
+  //   return axiosInstance.post('contact/postContact', newContact)
+  //     .then(response => {
+  //       toast.success('Got your response.')
+  //       reset()
+  //     })
+  //     .catch(err => toast.error(err))
+  // }
+  // // functions--handle contact submission
+  const onSubmit = (data:unknown) => {
+    console.log(data);
+    // postContact({ _id: v4(), ...data })
   };
 
   // console.log(isStartOpenClicked);

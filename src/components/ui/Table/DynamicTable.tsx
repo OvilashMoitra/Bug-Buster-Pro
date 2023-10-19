@@ -3,7 +3,7 @@
 import { Table } from "antd";
 
 type DynamicTableProps = {
-  loading?: boolean;
+  isLoading?: boolean;
   columns: any;
   dataSource: any;
   pageSize?: number;
@@ -15,7 +15,7 @@ type DynamicTableProps = {
 };
 
 const DynamicTable = ({
-  loading = false,
+  isLoading = false,
   columns,
   dataSource,
   pageSize,
@@ -24,7 +24,7 @@ const DynamicTable = ({
   onPaginationChange,
   onTableChange,
   showPagination = true,
-}: UMTableProps) => {
+}: DynamicTableProps) => {
   const paginationConfig = showPagination
     ? {
         pageSize: pageSize,
@@ -37,7 +37,7 @@ const DynamicTable = ({
 
   return (
     <Table
-      loading={loading}
+      loading={isLoading}
       columns={columns}
       dataSource={dataSource}
       pagination={paginationConfig}

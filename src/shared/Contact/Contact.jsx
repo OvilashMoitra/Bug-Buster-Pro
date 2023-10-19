@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { FcCallback } from 'react-icons/fc'
 import { AiFillFacebook } from 'react-icons/ai'
