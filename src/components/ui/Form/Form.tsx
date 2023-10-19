@@ -24,7 +24,7 @@ const Form = ({
   if (!!defaultValues) formConfig["defaultValues"] = defaultValues;
   if (!!resolver) formConfig["resolver"] = resolver;
   const methods = useForm<FormProps>(formConfig);
-
+// console.log("from dynamic form",formConfig);
   const { handleSubmit, reset } = methods;
 
   const onSubmit = (data: any) => {

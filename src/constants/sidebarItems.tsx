@@ -34,7 +34,7 @@ export const sidebarItems = (role: string) => {
     {
       label: <Link href={`/${role}/blog`}>Manage Blogs</Link>,
       icon: <TableOutlined />,
-      key: `/${role}/manage-blog`,
+      key: `/${role}/blog`,
     },
     {
       label: <Link href={`/${role}/faq`}>Manage Faq</Link>,
@@ -57,6 +57,20 @@ export const sidebarItems = (role: string) => {
       ],
     }
   ];
+  const ProductManagerSidebarItems: MenuProps["items"] = [
+    ...defaultSidebarItems,
+    {
+      label: "Manage Service",
+      key: "manage-service",
+      icon: <TableOutlined />,
+      children: [
+        {
+          label: <Link href={`/product_manager/manage_product`}>Manage Service</Link>,
+          key: `/product_manager/manage_product`,
+        }
+      ],
+    }
+  ];
 
   const superAdminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
@@ -74,7 +88,17 @@ export const sidebarItems = (role: string) => {
       label: <Link href={`/${role}/manage_role`}>Manage Role</Link>,
       icon: <TableOutlined />,
       key: `/${role}/manage_role`,
-    }
+    },
+    {
+      label: <Link href={`/product_manager/manage_product`}>Manage Service</Link>,
+      icon: <TableOutlined />,
+      key: `/product_manager/manage_product`,
+    },
+    {
+      label: <Link href={`/content_manager/blog`}>Manage Blogs</Link>,
+      icon: <TableOutlined />,
+      key: `/content_manager/blog`,
+    },
   ];
 
 

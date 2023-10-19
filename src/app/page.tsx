@@ -5,14 +5,19 @@ import PriceSection from '@/components/ui/PriceSection'
 import Stats from '@/components/ui/Stats'
 import BlogCard from '@/components/ui/Blog/BlogCard'
 import BlogDetails from '@/components/ui/Blog/BlogDetails'
+import ContactCalltoAction from '@/shared/ContactCalltoAction/ContactCalltoAction'
+import "./page.module.css"
+import { Button } from 'antd'
+import HomePageBanner from '@/components/ui/HomePageBanner'
 
 export default function Home() {
   return (
-    <div className='bg-white'>
+    <div className='bg-slate-900'>
+      <div className="bg-gradient-to-b from-violet-600/[.15] via-transparent" >
       <Navbar />
-      {/* <Header /> */}
-      <PriceSection />
+      <HomePageBanner/>
       <Stats />
+      <PriceSection />
       <div className='grid grid-cols-4 gap-5 px-5'>
         <BlogCard />
         <BlogCard />
@@ -22,6 +27,12 @@ export default function Home() {
       </div>
       <BlogDetails />
       <Footer />
+      {/* <Button type="primary" onClick={showDrawer}>
+        Open
+      </Button> */}
+      <ContactCalltoAction>
+        </ContactCalltoAction>
+    </div>
     </div>
   )
 }
