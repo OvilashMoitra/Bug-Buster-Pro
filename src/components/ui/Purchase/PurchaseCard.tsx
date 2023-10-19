@@ -11,12 +11,22 @@ import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { useCreateOrderMutation } from '@/redux/api/orderApi';
 import { localStorageHelper } from '@/helper/credential';
 import { useRouter } from 'next/navigation';
+import { useGetReviewByIdQuery } from '@/redux/api/reviewApi';
 
 
 const onChange = (key: string) => {
     console.log(key);
 };
 
+export type IReview = {
+    comments:string
+    createdAt:Date
+    id:string
+    orderId:string
+    rating:number
+    serviceId:string
+    updatedAt:Date
+}
 
 
 
@@ -28,9 +38,12 @@ const PurchaseCard = ({ id }: { id: string }) => {
     const router=useRouter()
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const { data, isLoading } = useGetServiceQuery(id, { skip: !id })
+    const {data:Reviews}=useGetReviewByIdQuery(id)
     const [addToPurchase,{isSuccess}]=useCreateOrderMutation()
     const { control, handleSubmit, formState: { errors } } = useForm();
-    console.log({ data });
+    // console.log({ data });
+console.log({Reviews});
+    // ! tab  data
     const items: TabsProps['items'] = [
         {
             key: '1',
@@ -40,7 +53,9 @@ const PurchaseCard = ({ id }: { id: string }) => {
         {
             key: '2',
             label: 'Review',
-            children: <ReviewSection />,
+            children: <div>
+                {Reviews?.data?.map((review:IReview)=><ReviewSection key={review.id} review={review}/>)}
+            </div>,
         },
         {
             key: '3',
