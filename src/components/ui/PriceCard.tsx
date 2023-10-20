@@ -1,27 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
 
-export const pricingData = [
-    {
-        "title": "Basic",
-        "price": "$19/month",
-        "description": "Lorem ipsum dolor sit amet.",
-        "features": ["Feature 1", "Feature 2", "Feature 3"]
-    },
-    {
-        "title": "Standard",
-        "price": "$39/month",
-        "description": "Lorem ipsum dolor sit amet.",
-        "features": ["Feature 1", "Feature 2", "Feature 3"]
-    },
-    {
-        "title": "Premium",
-        "price": "$59/month",
-        "description": "Lorem ipsum dolor sit amet.",
-        "features": ["Feature 1", "Feature 2", "Feature 3"]
-    }
-]
-
 
 const PriceCard = ({ title, price, description, features }:{title:string,price:string,description:string,features:string[]}) => {
     return (

@@ -5,13 +5,33 @@ import { Layout, Menu } from "antd";
 
 import { sidebarItems } from "@/constants/sidebarItems";
 import { USER_ROLE } from "@/constants/role";
+import { localStorageHelper } from "@/helper/credential";
 
 const { Sider } = Layout;
 
 const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const userInfo = localStorageHelper.getUserInfo()
+  function getRoleNameById(id:string):string {
+    switch (id) {
+        case "db0679fd-bb88-47f0-98c3-1b02df17a41d":
+            return USER_ROLE.HR;
+        case "3658e74f-c2d0-4e3f-ae67-4fdd94ac8e84":
+            return USER_ROLE.SUPER_ADMIN;
+        case "3bc1e0ab-2a2a-4590-8f44-5b9d0871670d":
+            return USER_ROLE.CONTENT_MANAGER;
+        case "5e002e42-37c9-4a96-8f35-275b21cfb255":
+            return USER_ROLE.USER;
+        case "00fd2d84-fb6a-43c3-9c0b-8b55c337e045":
+            return USER_ROLE.PRODUCT_MANAGER;
+        default:
+            return USER_ROLE.USER;
+    }
+}
 
-  const role = USER_ROLE.SUPER_ADMIN;
+  // @ts-ignore
+  const role = getRoleNameById(userInfo?.data?.role);
+  console.log(role);
 
   return (
     <Sider

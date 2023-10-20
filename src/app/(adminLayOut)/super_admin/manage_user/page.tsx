@@ -32,7 +32,7 @@ const page = () => {
       Email: elem?.email,
       Role: elem?.Role?.name,
       Operation: <Link className="text-lg text-black" href={`/super_admin/manage_user/${elem?.id}`}>
-        <Button type="primary" className="mr-2">
+        <Button style={{background:"blue",color:"white"}} type="primary" className="mr-2">
           <PiPencilSimpleLineBold />
         </Button>
       </Link>,

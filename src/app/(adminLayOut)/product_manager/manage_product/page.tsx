@@ -117,11 +117,11 @@ const page = () => {
       Price: elem?.price,
       Operation: <>
         <Link className="text-lg text-black" href={`/product_manager/manage_product/${elem?.id}`}>
-          <Button type="primary" className="mr-2">
+          <Button style={{background:"blue",color:"white"}} type="primary" className="mr-2">
             <PiPencilSimpleLineBold />
           </Button>
         </Link>
-        <Button type="primary" onClick={() => showModal(elem as IService)}>
+        <Button style={{background:"blue",color:"white"}} type="primary" onClick={() => showModal(elem as IService)}>
           Details Service
         </Button>
       </>
@@ -134,6 +134,7 @@ const page = () => {
     <div>
       <div className='flex justify-end p-10'>
         <Button
+          style={{background:"blue",color:"white"}}
           type="primary"
           className='my-5'
         >

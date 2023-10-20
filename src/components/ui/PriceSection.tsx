@@ -2,6 +2,7 @@
 import { localStorageHelper } from "@/helper/credential";
 import { useCreateCartMutation } from "@/redux/api/cartApi";
 import { useGetAllServiceQuery } from "@/redux/api/service";
+import { message } from "antd";
 import { useRouter } from "next/navigation";
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react";
 
@@ -13,7 +14,13 @@ const PriceSection = () => {
     const [addToCart]=useCreateCartMutation()
 
     // !functions
-    const handleAddToCart = async (id: string) => { 
+    const handleAddToCart = async (id: string) => {
+        // @ts-ignore
+        if (!userInfo?.data?._id) {
+            message.error("Login to add to cart")
+            route.push('/login')
+            return
+        }
         // @ts-ignore
         const cartInfo = {
             serviceId: id,
