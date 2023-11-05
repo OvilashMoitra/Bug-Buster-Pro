@@ -1,9 +1,7 @@
 "use client"
 
-import { Button, DropDownProps, Dropdown, Menu, MenuProps } from "antd";
+import { Button, Dropdown, MenuProps } from "antd";
 import { RxAvatar } from 'react-icons/rx';
-import { Header } from "antd/es/layout/layout";
-import Image from "next/image";
 import Link from "next/link";
 import { localStorageHelper } from "@/helper/credential";
 import { useRouter } from "next/navigation";
