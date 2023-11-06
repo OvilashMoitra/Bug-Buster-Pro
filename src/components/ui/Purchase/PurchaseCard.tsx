@@ -2,7 +2,7 @@
 "use client"
 import { useGetServiceQuery } from '@/redux/api/service';
 import { Button, TabsProps, message } from 'antd';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PurchaseDetails from './PurchaseDetails';
 import ReviewSection from '../Review/ReviewSection';
 import DynamicTabs from '../Tabs/Tabs';
@@ -41,6 +41,7 @@ const PurchaseCard = ({ id }: { id: string }) => {
     const {data:Reviews}=useGetReviewByIdQuery(id)
     const [addToPurchase,{isSuccess}]=useCreateOrderMutation()
     const { control, handleSubmit, formState: { errors } } = useForm();
+    const purchaseFormRef=useRef<HTMLButtonElement|null>(null)
     // console.log({ data });
 console.log({Reviews});
     // ! tab  data
@@ -75,7 +76,7 @@ console.log({Reviews});
     };
 
     const handleOk = () => {
-        message.error('Please fill the form');
+        purchaseFormRef.current?.click()
     };
 
     const handleCancel = () => {
@@ -119,12 +120,14 @@ console.log({Reviews});
                     </div>
                 </div>
                 <DynamicModal
+                    title='Enter Phone Number'
                     open={isOpen}
                     onCancel={handleCancel}
                     onOk={handleOk}
+                    okText='Purchase'
                 >
                     {/* //@ts-ignore */}
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form  onSubmit={handleSubmit(onSubmit)}>
                         <div style={{ margin: '1rem' }}>
                             <label htmlFor="phoneNumber">Enter your Phone Number:</label>
                             <Controller
@@ -135,6 +138,7 @@ console.log({Reviews});
                                     <input
                                         {...field}
                                         type="text"
+                                        required
                                         id="phoneNumber"
                                         style={{
                                             padding: '0.5rem',
@@ -150,8 +154,8 @@ console.log({Reviews});
                             {/* @ts-ignore */}
                             {errors.inputField && <p style={{ color: 'red' }}>{errors?.inputField?.message}</p>}
                         </div>
-                        <div className='flex justify-center py-3'>
-                            <Button style={{ background: 'blue', color: "white" }} htmlType='submit'>Submit</Button>
+                        <div className='hidden'>
+                            <Button ref={purchaseFormRef} style={{ background: 'blue', color: "white" }} htmlType='submit'>Submit</Button>
                         </div>
                     </form>
                 </DynamicModal>

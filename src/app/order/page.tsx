@@ -95,7 +95,7 @@ const OrdersPage = () => {
             rating:value
         }
         const reviewResponse = await addReview(reviewPayload)
-        console.log({reviewResponse});
+        // console.log({reviewResponse});
         setIsOpen(false);
     };
 
@@ -119,7 +119,9 @@ const OrdersPage = () => {
                 <Footer />
             </div>
             <DynamicModal
+                title="Give Review"
                 open={isOpen}
+                okText='Submit Review'
                 onCancel={handleCancel}
                 onOk={handleOk}
             >

@@ -3,7 +3,11 @@ import { Button, Modal } from 'antd';
 
 
 type IDynamicModalProps = {
+    title: string;
     open: boolean;
+    okText: string;
+    width?: number;
+    cancelText?: string| "Cancel";
     children: React.ReactElement| React.ReactNode
     onCancel: () => void;
     onOk: () => void;
@@ -27,7 +31,15 @@ const DynamicModal = (props:IDynamicModalProps) => {
 
   return (
     <>
-      <Modal title="Basic Modal" open={props.open} onOk={props.onOk} onCancel={props.onCancel}>
+      <Modal
+        width={props.width || 416}
+        title={props.title}
+        open={props.open}
+        onOk={props.onOk}
+        onCancel={props.onCancel}
+        okText={props.okText}
+        cancelText={props.cancelText}
+      >
         {props.children}
       </Modal>
     </>

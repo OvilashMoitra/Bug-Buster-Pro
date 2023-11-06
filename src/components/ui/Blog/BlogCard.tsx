@@ -7,7 +7,7 @@ import moment from 'moment';
 
 const BlogCard = ({blog}:{blog:IBlog}) => {
     return (
-        <Link className="group w-[400px] flex flex-col h-[550px] border border-black hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-gray-500 dark:hover:border-transparent dark:hover:shadow-black/[.4]" href={`/blog/${blog.id}`}>
+        <Link className="group w-[350px] flex flex-col h-[600px] border border-black hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5 dark:border-gray-500 dark:hover:border-transparent dark:hover:shadow-black/[.4]" href={`/blog/${blog.id}`}>
             <div className="aspect-w-16 aspect-h-11">
                 <img className="w-full h-[300px]  rounded-xl" src={blog?.blogImage} alt="Image Description" />
             </div>

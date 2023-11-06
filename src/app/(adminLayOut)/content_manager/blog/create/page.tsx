@@ -64,7 +64,7 @@ const page = () => {
         }
     };
 
-    console.log({ tagsData });
+
     return (
         <div className='flex justify-center'>
             <div className='w-[50vw] shadow-2xl rounded-lg  p-5 mt-10'>

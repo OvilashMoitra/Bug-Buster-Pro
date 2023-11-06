@@ -16,6 +16,7 @@ import FAQSection from '@/components/ui/FAQSection'
 import { useGetAllBlogQuery } from '@/redux/api/blogApi'
 import { IBlog } from './blog/page'
 import Link from 'next/link'
+import FeedbackForm from '@/components/ui/FeedbackForm'
 
 export default function Home() {
   // !hook
@@ -62,7 +63,8 @@ export default function Home() {
         {blogs}
         <FAQSection />
         <Footer />
-      <ContactCalltoAction/>
+        <ContactCalltoAction />
+        <FeedbackForm/>
     </div>
     </div>
   )
