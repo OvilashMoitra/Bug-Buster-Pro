@@ -148,6 +148,8 @@ const page = () => {
       />
 
       <DynamicModal
+        title="Service Details"
+        okText="Ok"
         open={isOpen}
         onCancel={handleCancel}
         onOk={handleOk}
