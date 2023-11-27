@@ -129,7 +129,9 @@ const handleCancel = () => {
         isLoading={isLoading}
           />
           
-          <DynamicModal
+      <DynamicModal
+        title='Update Contact'
+              okText='Update'
               open={isOpen}
               onCancel={handleCancel}
               onOk={handleOk}
@@ -138,7 +140,9 @@ const handleCancel = () => {
               <input type="text" placeholder='CONFIRM' value={text} onChange={e => setText(e.target.value)} />
               <small>Type CONFIRM</small>
           </DynamicModal>
-          <DynamicModal
+      <DynamicModal
+        okText='Delete'
+        title='Delete Contact'
               open={isDeleteOpen}
               onCancel={handleCancel}
               onOk={handleDeleteOk}
